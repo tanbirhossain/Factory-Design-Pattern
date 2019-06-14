@@ -4,9 +4,14 @@ namespace Factory.Provider
 {
     public class RobiProvider : IMessage
     {
-        public string Send()
+        private string _number;
+        public RobiProvider(string number)
         {
-            return "send successfully from Robi";
+            _number = number;
         }
+
+
+        public string Send() => $"send successfully from {_number}";
+
     }
 }

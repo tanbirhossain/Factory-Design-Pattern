@@ -13,7 +13,7 @@ namespace Factory.Factory
             switch (number)
             {
                 case "robi":
-                    return new RobiProvider();
+                    return new RobiProvider(number);
                 case "grameen":
                     return new GrameenPhoneProvider();
                 case "airtel":

@@ -8,6 +8,7 @@ namespace Factory
         static void Main(string[] args)
         {
             IMessageFactory factory = new MessageProviderFactory();
+            //var factory = new MessageProviderFactory();
             //var provider = factory.GetProvier("robi");
             //var result = provider.Send();
 
