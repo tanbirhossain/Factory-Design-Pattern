@@ -1,4 +1,5 @@
 ﻿using Factory.Factory;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 
 namespace Factory
@@ -7,11 +8,24 @@ namespace Factory
     {
         static void Main(string[] args)
         {
-            IMessageFactory factory = new MessageProviderFactory();
+
+            //setup our DI
+            var serviceProvider = new ServiceCollection()
+                .AddSingleton<IMessageFactory, MessageProviderFactory>()
+                .BuildServiceProvider();
+
+
+            #region dummy code
+
+            //IMessageFactory factory = new MessageProviderFactory();
             //var factory = new MessageProviderFactory();
             //var provider = factory.GetProvier("robi");
             //var result = provider.Send();
 
+            #endregion
+
+
+            var factory = serviceProvider.GetService<IMessageFactory>();
             //single point call factory
             var result_robi = factory.GetProvier("robi").Send();
             Console.WriteLine(result_robi);
