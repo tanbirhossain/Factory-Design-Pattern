@@ -18,7 +18,7 @@ namespace Factory
 
 
 
-            //single point call factory
+            //call factory
             var result_apple = factory.GetCompany("apple").DoWork();
             Console.WriteLine(result_apple);
 
