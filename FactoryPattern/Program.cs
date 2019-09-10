@@ -11,30 +11,22 @@ namespace Factory
 
             //setup our DI
             var serviceProvider = new ServiceCollection()
-                .AddSingleton<IMessageFactory, MessageProviderFactory>()
+                .AddSingleton<IComputerFactory, ComputerFactory>()
                 .BuildServiceProvider();
 
-
-            #region dummy code
-
-            //IMessageFactory factory = new MessageProviderFactory();
-            //var factory = new MessageProviderFactory();
-            //var provider = factory.GetProvier("robi");
-            //var result = provider.Send();
-
-            #endregion
+            var factory = serviceProvider.GetService<IComputerFactory>(); // find our factory
 
 
-            var factory = serviceProvider.GetService<IMessageFactory>();
+
             //single point call factory
-            var result_robi = factory.GetProvier("robi").Send();
-            Console.WriteLine(result_robi);
+            var result_apple = factory.GetCompany("apple").DoWork();
+            Console.WriteLine(result_apple);
 
-            var result_grameen = factory.GetProvier("grameen").Send();
-            Console.WriteLine(result_grameen);
+            var result_hp = factory.GetCompany("hp").DoWork();
+            Console.WriteLine(result_hp);
 
-            var result_airtel = factory.GetProvier("airtel").Send();
-            Console.WriteLine(result_airtel);
+            var result_lenovo = factory.GetCompany("lenovo").DoWork();
+            Console.WriteLine(result_lenovo);
 
             Console.ReadLine();
         }
