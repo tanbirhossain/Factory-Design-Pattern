@@ -5,4 +5,3 @@
         string DoWork();
     }
 }
-after that we will create different type of computer brand class.
