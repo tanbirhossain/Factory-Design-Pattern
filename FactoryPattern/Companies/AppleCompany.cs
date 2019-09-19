@@ -8,7 +8,6 @@ namespace Factory.Companies
         {
             _name = name;
         }
-
         public string DoWork() => $"object successfully created from {_name}";
 
     }
